@@ -1,3 +1,23 @@
+<template>
+  <div  class="ToDoItem">
+    <div  class="ToDo-Add"  @click="createNewToDoItem()">+</div>
+    <p class="ToDoItem-Text">{{todo.text}}</p>
+    <div class="ToDoItem-Delete" @click="deleteItem(todo)">-
+	</div>
+  </div>
+</template>
+<script>
+  export  default  {
+  name: "to-do-item",
+    props: ['todo'],
+    methods: {
+  deleteItem(todo) {
+    this.$emit('delete', todo)
+  }
+}
+  }
+</script>
+
 <style>
     .ToDoItem {
         display: flex;
